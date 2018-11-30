@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		F5E4F12F21B122940094ED4D /* Epic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E4F12521B122930094ED4D /* Epic.framework */; };
-		F5E4F13421B122940094ED4D /* EpicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E4F13321B122940094ED4D /* EpicTests.swift */; };
+		F5E4F13421B122940094ED4D /* GeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E4F13321B122940094ED4D /* GeneratorTests.swift */; };
 		F5E4F13621B122940094ED4D /* Epic.h in Headers */ = {isa = PBXBuildFile; fileRef = F5E4F12821B122930094ED4D /* Epic.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F5E4F14321B1231C0094ED4D /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E4F14221B1231C0094ED4D /* Generator.swift */; };
+		F5E4F14521B1232F0094ED4D /* Throttle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E4F14421B1232F0094ED4D /* Throttle.swift */; };
+		F5E4F14721B123500094ED4D /* ThrottleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E4F14621B123500094ED4D /* ThrottleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +30,11 @@
 		F5E4F12821B122930094ED4D /* Epic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Epic.h; sourceTree = "<group>"; };
 		F5E4F12921B122930094ED4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5E4F12E21B122940094ED4D /* EpicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EpicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5E4F13321B122940094ED4D /* EpicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpicTests.swift; sourceTree = "<group>"; };
+		F5E4F13321B122940094ED4D /* GeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorTests.swift; sourceTree = "<group>"; };
 		F5E4F13521B122940094ED4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5E4F14221B1231C0094ED4D /* Generator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Generator.swift; path = Epic/Epic/Generator.swift; sourceTree = SOURCE_ROOT; };
+		F5E4F14421B1232F0094ED4D /* Throttle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Throttle.swift; path = Epic/Epic/Throttle.swift; sourceTree = SOURCE_ROOT; };
+		F5E4F14621B123500094ED4D /* ThrottleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrottleTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 			children = (
 				F5E4F12821B122930094ED4D /* Epic.h */,
 				F5E4F12921B122930094ED4D /* Info.plist */,
+				F5E4F14121B122ED0094ED4D /* Epic */,
 			);
 			path = Epic;
 			sourceTree = "<group>";
@@ -80,10 +87,21 @@
 		F5E4F13221B122940094ED4D /* EpicTests */ = {
 			isa = PBXGroup;
 			children = (
-				F5E4F13321B122940094ED4D /* EpicTests.swift */,
+				F5E4F13321B122940094ED4D /* GeneratorTests.swift */,
+				F5E4F14621B123500094ED4D /* ThrottleTests.swift */,
 				F5E4F13521B122940094ED4D /* Info.plist */,
 			);
 			path = EpicTests;
+			sourceTree = "<group>";
+		};
+		F5E4F14121B122ED0094ED4D /* Epic */ = {
+			isa = PBXGroup;
+			children = (
+				F5E4F14221B1231C0094ED4D /* Generator.swift */,
+				F5E4F14421B1232F0094ED4D /* Throttle.swift */,
+			);
+			name = Epic;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +166,7 @@
 				TargetAttributes = {
 					F5E4F12421B122930094ED4D = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					F5E4F12D21B122940094ED4D = {
 						CreatedOnToolsVersion = 10.1;
@@ -194,6 +213,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E4F14321B1231C0094ED4D /* Generator.swift in Sources */,
+				F5E4F14521B1232F0094ED4D /* Throttle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +222,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5E4F13421B122940094ED4D /* EpicTests.swift in Sources */,
+				F5E4F13421B122940094ED4D /* GeneratorTests.swift in Sources */,
+				F5E4F14721B123500094ED4D /* ThrottleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +363,7 @@
 		F5E4F13A21B122940094ED4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -357,6 +380,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mhjaso.Epic;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,6 +389,7 @@
 		F5E4F13B21B122940094ED4D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -389,6 +414,7 @@
 		F5E4F13D21B122940094ED4D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EpicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -406,6 +432,7 @@
 		F5E4F13E21B122940094ED4D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = EpicTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
