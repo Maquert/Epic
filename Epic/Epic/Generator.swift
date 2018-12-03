@@ -53,7 +53,7 @@ public struct Generator {
         }
 
         private subscript(index: Int) -> Operation? {
-            guard index >= 0 && index < self.generator.operations.count else { return nil }
+            guard (0..<self.generator.operations.count).contains(index) else { return nil }
             return self.generator.operations[index]
         }
     }
