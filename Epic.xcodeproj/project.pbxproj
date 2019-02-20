@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F5408CDB221D70350078148D /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5408CDA221D70350078148D /* SequenceExtensions.swift */; };
+		F5408CDD221D70550078148D /* SequenceExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5408CDC221D70550078148D /* SequenceExtensionsTests.swift */; };
 		F5E4F12F21B122940094ED4D /* Epic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E4F12521B122930094ED4D /* Epic.framework */; };
 		F5E4F13421B122940094ED4D /* GeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E4F13321B122940094ED4D /* GeneratorTests.swift */; };
 		F5E4F13621B122940094ED4D /* Epic.h in Headers */ = {isa = PBXBuildFile; fileRef = F5E4F12821B122930094ED4D /* Epic.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F5408CDA221D70350078148D /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
+		F5408CDC221D70550078148D /* SequenceExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensionsTests.swift; sourceTree = "<group>"; };
 		F5E4F12521B122930094ED4D /* Epic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Epic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E4F12821B122930094ED4D /* Epic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Epic.h; sourceTree = "<group>"; };
 		F5E4F12921B122930094ED4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F5408CD9221D70200078148D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F5408CDA221D70350078148D /* SequenceExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		F5E4F11B21B122930094ED4D = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +92,7 @@
 				F5E4F12821B122930094ED4D /* Epic.h */,
 				F5E4F12921B122930094ED4D /* Info.plist */,
 				F5E4F14121B122ED0094ED4D /* Epic */,
+				F5408CD9221D70200078148D /* Extensions */,
 			);
 			path = Epic;
 			sourceTree = "<group>";
@@ -89,6 +102,7 @@
 			children = (
 				F5E4F13321B122940094ED4D /* GeneratorTests.swift */,
 				F5E4F14621B123500094ED4D /* ThrottleTests.swift */,
+				F5408CDC221D70550078148D /* SequenceExtensionsTests.swift */,
 				F5E4F13521B122940094ED4D /* Info.plist */,
 			);
 			path = EpicTests;
@@ -213,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5E4F14321B1231C0094ED4D /* Generator.swift in Sources */,
+				F5408CDB221D70350078148D /* SequenceExtensions.swift in Sources */,
 				F5E4F14521B1232F0094ED4D /* Throttle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5E4F13421B122940094ED4D /* GeneratorTests.swift in Sources */,
+				F5408CDD221D70550078148D /* SequenceExtensionsTests.swift in Sources */,
 				F5E4F14721B123500094ED4D /* ThrottleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

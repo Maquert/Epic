@@ -2,8 +2,6 @@ import XCTest
 import Epic
 
 class ThrottleTests: XCTestCase {
-    fileprivate typealias Me = ThrottleTests
-
     func testThrottleWorksWithASingleTask() {
         let epic = Throttle()
         let firstTaskExp = expectation(description: "Execution of the first task")
@@ -25,9 +23,9 @@ class ThrottleTests: XCTestCase {
         secondTaskExp.isInverted = true // Should not be executed
         let thirdTaskExp = expectation(description: "Execution of the third task")
 
-        Me.dispatch() { epic.throttle { firstTaskExp.fulfill() } }
-        Me.dispatch(after: 0.1) { epic.throttle { secondTaskExp.fulfill() } }
-        Me.dispatch(after: 0.2) { epic.throttle { thirdTaskExp.fulfill() } }
+        ThrottleTests.dispatch() { epic.throttle { firstTaskExp.fulfill() } }
+        ThrottleTests.dispatch(after: 0.1) { epic.throttle { secondTaskExp.fulfill() } }
+        ThrottleTests.dispatch(after: 0.2) { epic.throttle { thirdTaskExp.fulfill() } }
 
         wait(for: [firstTaskExp, secondTaskExp, thirdTaskExp], timeout: 0.5, enforceOrder: true)
     }
@@ -43,9 +41,9 @@ class ThrottleTests: XCTestCase {
         let secondTaskExp = expectation(description: "Execution of the second task")
         let thirdTaskExp = expectation(description: "Execution of the third task")
 
-        Me.dispatch() { epic.throttle { firstTaskExp.fulfill() } }
-        Me.dispatch(after: 0.3) { epic.throttle { secondTaskExp.fulfill() } }
-        Me.dispatch(after: 0.6) { epic.throttle { thirdTaskExp.fulfill() } }
+        ThrottleTests.dispatch() { epic.throttle { firstTaskExp.fulfill() } }
+        ThrottleTests.dispatch(after: 0.3) { epic.throttle { secondTaskExp.fulfill() } }
+        ThrottleTests.dispatch(after: 0.6) { epic.throttle { thirdTaskExp.fulfill() } }
 
         wait(for: [firstTaskExp, secondTaskExp, thirdTaskExp], timeout: 0.9, enforceOrder: true)
     }
