@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		F5408CDB221D70350078148D /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5408CDA221D70350078148D /* SequenceExtensions.swift */; };
 		F5408CDD221D70550078148D /* SequenceExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5408CDC221D70550078148D /* SequenceExtensionsTests.swift */; };
+		F5C854532229A770004C5AD6 /* BrokerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C854522229A770004C5AD6 /* BrokerTests.swift */; };
+		F5C854552229DB6A004C5AD6 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C854542229DB6A004C5AD6 /* Topic.swift */; };
+		F5C854592229DE93004C5AD6 /* TopicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C854582229DE93004C5AD6 /* TopicTests.swift */; };
+		F5C8545B2229E6E7004C5AD6 /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C8545A2229E6E7004C5AD6 /* IntegrationTests.swift */; };
+		F5D8A6362228AAAC0029BDF1 /* LaneEventBusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D8A6352228AAAC0029BDF1 /* LaneEventBusTests.swift */; };
+		F5D8A6382228AFA20029BDF1 /* MessageBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D8A6372228AFA20029BDF1 /* MessageBus.swift */; };
+		F5D8A63A2228E8B30029BDF1 /* Broker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D8A6392228E8B30029BDF1 /* Broker.swift */; };
 		F5E4F12F21B122940094ED4D /* Epic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E4F12521B122930094ED4D /* Epic.framework */; };
 		F5E4F13421B122940094ED4D /* GeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E4F13321B122940094ED4D /* GeneratorTests.swift */; };
 		F5E4F13621B122940094ED4D /* Epic.h in Headers */ = {isa = PBXBuildFile; fileRef = F5E4F12821B122930094ED4D /* Epic.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +37,13 @@
 /* Begin PBXFileReference section */
 		F5408CDA221D70350078148D /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
 		F5408CDC221D70550078148D /* SequenceExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensionsTests.swift; sourceTree = "<group>"; };
+		F5C854522229A770004C5AD6 /* BrokerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokerTests.swift; sourceTree = "<group>"; };
+		F5C854542229DB6A004C5AD6 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		F5C854582229DE93004C5AD6 /* TopicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTests.swift; sourceTree = "<group>"; };
+		F5C8545A2229E6E7004C5AD6 /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
+		F5D8A6352228AAAC0029BDF1 /* LaneEventBusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaneEventBusTests.swift; sourceTree = "<group>"; };
+		F5D8A6372228AFA20029BDF1 /* MessageBus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBus.swift; sourceTree = "<group>"; };
+		F5D8A6392228E8B30029BDF1 /* Broker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broker.swift; sourceTree = "<group>"; };
 		F5E4F12521B122930094ED4D /* Epic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Epic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E4F12821B122930094ED4D /* Epic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Epic.h; sourceTree = "<group>"; };
 		F5E4F12921B122930094ED4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,6 +82,27 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		F5C854512229A753004C5AD6 /* Event Bus */ = {
+			isa = PBXGroup;
+			children = (
+				F5D8A6352228AAAC0029BDF1 /* LaneEventBusTests.swift */,
+				F5C854522229A770004C5AD6 /* BrokerTests.swift */,
+				F5C854582229DE93004C5AD6 /* TopicTests.swift */,
+				F5C8545A2229E6E7004C5AD6 /* IntegrationTests.swift */,
+			);
+			path = "Event Bus";
+			sourceTree = "<group>";
+		};
+		F5D8A63B2228ED480029BDF1 /* Event Bus */ = {
+			isa = PBXGroup;
+			children = (
+				F5D8A6372228AFA20029BDF1 /* MessageBus.swift */,
+				F5D8A6392228E8B30029BDF1 /* Broker.swift */,
+				F5C854542229DB6A004C5AD6 /* Topic.swift */,
+			);
+			path = "Event Bus";
+			sourceTree = "<group>";
+		};
 		F5E4F11B21B122930094ED4D = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +138,7 @@
 				F5E4F13321B122940094ED4D /* GeneratorTests.swift */,
 				F5E4F14621B123500094ED4D /* ThrottleTests.swift */,
 				F5408CDC221D70550078148D /* SequenceExtensionsTests.swift */,
+				F5C854512229A753004C5AD6 /* Event Bus */,
 				F5E4F13521B122940094ED4D /* Info.plist */,
 			);
 			path = EpicTests;
@@ -113,6 +149,7 @@
 			children = (
 				F5E4F14221B1231C0094ED4D /* Generator.swift */,
 				F5E4F14421B1232F0094ED4D /* Throttle.swift */,
+				F5D8A63B2228ED480029BDF1 /* Event Bus */,
 			);
 			path = Epic;
 			sourceTree = "<group>";
@@ -227,8 +264,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5E4F14321B1231C0094ED4D /* Generator.swift in Sources */,
+				F5D8A6382228AFA20029BDF1 /* MessageBus.swift in Sources */,
 				F5408CDB221D70350078148D /* SequenceExtensions.swift in Sources */,
+				F5D8A63A2228E8B30029BDF1 /* Broker.swift in Sources */,
 				F5E4F14521B1232F0094ED4D /* Throttle.swift in Sources */,
+				F5C854552229DB6A004C5AD6 /* Topic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,9 +276,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5C8545B2229E6E7004C5AD6 /* IntegrationTests.swift in Sources */,
 				F5E4F13421B122940094ED4D /* GeneratorTests.swift in Sources */,
+				F5D8A6362228AAAC0029BDF1 /* LaneEventBusTests.swift in Sources */,
 				F5408CDD221D70550078148D /* SequenceExtensionsTests.swift in Sources */,
 				F5E4F14721B123500094ED4D /* ThrottleTests.swift in Sources */,
+				F5C854532229A770004C5AD6 /* BrokerTests.swift in Sources */,
+				F5C854592229DE93004C5AD6 /* TopicTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

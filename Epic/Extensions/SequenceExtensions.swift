@@ -19,9 +19,11 @@ extension Sequence where Self: Collection {
         let filteredCollection = collection.filter(filter)
         return self.flatFilter(collection: filteredCollection, filterClosures: filters)
     }
+}
 
+extension Sequence {
     /// Returns the first element in the array and the remaining elements
-    private func headTail<T>(collection: [T]) -> (T?, [T]) {
+    public func headTail<T>(collection: [T]) -> (T?, [T]) {
         guard let filter = collection.first else { return (nil, collection) }
         let filters = collection.dropFirst()
         return (filter, Array(filters))
