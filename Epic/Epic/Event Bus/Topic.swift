@@ -30,3 +30,15 @@ public extension Topic {
         return self.messages
     }
 }
+
+public extension Topic where Self: Equatable {
+    static func == (lhs: Topic, rhs: Topic) -> Bool {
+        return lhs.name == rhs.name
+    }
+}
+
+public extension Topic where Self: Hashable {
+    var hashValue: Int {
+        return name.hashValue
+    }
+}
