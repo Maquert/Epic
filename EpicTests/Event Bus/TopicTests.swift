@@ -1,12 +1,3 @@
-//
-//  TopicTests.swift
-//  EpicTests
-//
-//  Created by Miguel Hernández Jaso on 01/03/2019.
-//  Copyright © 2019 Miguel Hernández Jaso. All rights reserved.
-//
-
-
 import XCTest
 import Epic
 

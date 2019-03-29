@@ -1,16 +1,8 @@
-//
-//  IntegrationTests.swift
-//  EpicTests
-//
-//  Created by Miguel Hernández Jaso on 01/03/2019.
-//  Copyright © 2019 Miguel Hernández Jaso. All rights reserved.
-//
-
 import XCTest
 import Epic
 
 class IntegrationTests: XCTestCase {
-    var lane: MessageBus!
+    var messageBus: MessageBus!
     var broker: Broker!
     var topic: DryTopic!
 
@@ -30,7 +22,7 @@ class IntegrationTests: XCTestCase {
                 reachedEnd.fulfill()
             }
         }
-        lane.send(messages: messages(count: 1))
+        messageBus.send(messages: messages(count: 1))
         waitForExpectations(timeout: 1, handler: nil)
 
         assertState(withNumberOfProcessedItems: 1)
@@ -46,7 +38,7 @@ class IntegrationTests: XCTestCase {
                 reachedEnd.fulfill()
             }
         }
-        lane.send(messages: messages(count: 10))
+        messageBus.send(messages: messages(count: 10))
         waitForExpectations(timeout: 1, handler: nil)
 
         assertState(withNumberOfProcessedItems: 10)
@@ -62,7 +54,7 @@ class IntegrationTests: XCTestCase {
                 reachedEnd.fulfill()
             }
         }
-        lane.send(messages: messages(count: 1000))
+        messageBus.send(messages: messages(count: 1000))
         waitForExpectations(timeout: 2, handler: nil) // 1000 messages won't make it in 0.001 seconds
 
         assertState(withNumberOfProcessedItems: 1000)
@@ -77,7 +69,7 @@ class IntegrationTests: XCTestCase {
                 reachedEnd.fulfill()
             }
         }
-        lane.send(messages: messages(count: 10))
+        messageBus.send(messages: messages(count: 10))
         broker.subscribe()
         waitForExpectations(timeout: 1, handler: nil)
 
@@ -92,9 +84,9 @@ class IntegrationTests: XCTestCase {
     // MARK: Given
 
     func givenAnEmptyState() {
-        self.lane = MessageBus()
+        self.messageBus = MessageBus()
         self.topic = DryTopic(name: "testing_topic")
-        self.broker = DryBroker(topic: self.topic, lane: self.lane)
+        self.broker = DryBroker(topic: self.topic, messageBus: self.messageBus)
     }
 
     func messages(count: Int) -> [Epic.Message] {
@@ -102,13 +94,13 @@ class IntegrationTests: XCTestCase {
     }
 
     func assertEmptyState() {
-        XCTAssertEqual(lane.numberOfMessages, 0)
+        XCTAssertEqual(messageBus.numberOfMessages, 0)
         XCTAssertFalse(broker.fetching)
         XCTAssertEqual(topic.messages.count, 0)
     }
 
     func assertState(withNumberOfProcessedItems count: Int) {
-        XCTAssertEqual(lane.numberOfMessages, 0)
+        XCTAssertEqual(messageBus.numberOfMessages, 0)
         XCTAssertTrue(broker.fetching)
         XCTAssertEqual(topic.messages.count, count)
     }
@@ -117,9 +109,9 @@ class IntegrationTests: XCTestCase {
 class DryBroker: Broker {
     var topic: DryTopic
 
-    init(topic: DryTopic, lane: MessageBusProtocol) {
+    init(topic: DryTopic, messageBus: MessageBusProtocol) {
         self.topic = topic
-        super.init(lane: lane, pollingLoad: 1, pollingTime: 0.001)
+        super.init(messageBus: messageBus, pollingLoad: 1, pollingTime: 0.001)
     }
 
     

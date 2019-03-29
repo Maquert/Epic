@@ -1,11 +1,3 @@
-//
-//  BrokerTests.swift
-//  EpicTests
-//
-//  Created by Miguel Hernández Jaso on 01/03/2019.
-//  Copyright © 2019 Miguel Hernández Jaso. All rights reserved.
-//
-
 import XCTest
 import Epic
 
@@ -50,12 +42,12 @@ class BrokerTests: XCTestCase {
 
     func givenAnEmptyLane() {
         self.lane = MessageBus()
-        self.sut = Broker(lane: self.lane, pollingLoad: 1, pollingTime: 1)
+        self.sut = Broker(messageBus: self.lane, pollingLoad: 1, pollingTime: 1)
     }
 
     func givenALane(withNumberOfMessages count: Int) {
         self.lane = MessageBus()
-        self.sut = Broker(lane: self.lane, pollingLoad: 1, pollingTime: 1)
+        self.sut = Broker(messageBus: self.lane, pollingLoad: 1, pollingTime: 1)
 
         let messages = (0..<count).map { Message(types: ["test_" + String($0)], payload: nil) }
         self.lane.send(messages: messages)

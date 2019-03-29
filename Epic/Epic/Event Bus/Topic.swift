@@ -1,11 +1,3 @@
-//
-//  Topic.swift
-//  Epic
-//
-//  Created by Miguel Hernández Jaso on 01/03/2019.
-//  Copyright © 2019 Miguel Hernández Jaso. All rights reserved.
-//
-
 /// Represents a container that stores all items for a related topic
 public protocol Topic {
     var name: String { get }

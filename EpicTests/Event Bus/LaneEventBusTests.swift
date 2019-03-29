@@ -1,11 +1,3 @@
-//
-//  LaneEventBusTests.swift
-//  EpicTests
-//
-//  Created by Miguel Hernández Jaso on 28/02/2019.
-//  Copyright © 2019 Miguel Hernández Jaso. All rights reserved.
-//
-
 import XCTest
 import Epic
 

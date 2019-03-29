@@ -1,22 +1,24 @@
-//
-//  Lane.swift
-//  Epic
-//
-//  Created by Miguel Hernández Jaso on 28/02/2019.
-//  Copyright © 2019 Miguel Hernández Jaso. All rights reserved.
-//
-
+/// Represents a basic MessageBus contract with Epic
 public protocol MessageBusProtocol {
     func send(message: Message)
     func send(messages: [Message])
     func extract(numberOfMessages: Int) -> [Message]
 }
 
-/// Stores and drops messages in a FIFO fashion
-///
-/// Use `send(message:)` to append messages to the queue`
-/// Use `extract(numberOfMessages:)` to drop messages from the queue.
-public class MessageBus: MessageBusProtocol {
+public extension MessageBusProtocol {
+    /// Adds one message to the queue
+    func send(message: Message) {
+        self.send(messages: [message])
+    }
+}
+
+/**
+ Stores and drops messages in a FIFO fashion
+
+ Use `send(message:)` to append messages to the queue`
+ Use `extract(numberOfMessages:)` to drop messages from the queue.
+*/
+ public class MessageBus: MessageBusProtocol {
     private var messageQueue = [Message]()
 
     public init() {}
@@ -29,11 +31,6 @@ public class MessageBus: MessageBusProtocol {
 
     /// Returns the pending number of messages in the queue
     public var numberOfMessages: Int { return self.messageQueue.count }
-
-    /// Adds a message to the queue
-    public func send(message: Message) {
-        self.send(messages: [message])
-    }
 
     /// Adds message(s) to the queue
     public func send(messages: [Message]) {
