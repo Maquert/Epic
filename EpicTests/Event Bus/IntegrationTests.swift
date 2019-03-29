@@ -77,20 +77,43 @@ class IntegrationTests: XCTestCase {
     }
 
     func testTwoConcurrentTopicsReceivedTheirMessages() {
-        // WIP: Support for multiple topics
-        // DryBroker(topics: [topic1, topic2], lane: self.lane)
+        givenAnEmptyStateForMultipleTopics()
+
+        let reachedEndTopic0 = expectation(description: "The 1000 messages reached the topic 0")
+        let reachedEndTopic1 = expectation(description: "The 1000 messages reached the topic 1")
+        let dryBroker = self.broker as? DryBroker
+        dryBroker?.topic(name: "testing_topic_0")?.onChange = { messages in
+            if messages.count == 10 {
+                reachedEndTopic0.fulfill()
+            }
+        }
+        dryBroker?.topic(name: "testing_topic_1")?.onChange = { messages in
+            if messages.count == 10 {
+                reachedEndTopic1.fulfill()
+            }
+        }
+        messageBus.send(messages: messages(count: 10))
+        broker.subscribe()
+        waitForExpectations(timeout: 1, handler: nil)
     }
 
     // MARK: Given
 
     func givenAnEmptyState() {
         self.messageBus = MessageBus()
-        self.topic = DryTopic(name: "testing_topic")
+        self.topic = DryTopic(name: "testing_topic_0")
         self.broker = DryBroker(topic: self.topic, messageBus: self.messageBus)
     }
 
+    func givenAnEmptyStateForMultipleTopics() {
+        self.messageBus = MessageBus()
+        let topic1 = DryTopic(name: "testing_topic_0")
+        let topic2 = DryTopic(name: "testing_topic_1")
+        self.broker = DryBroker(topics: [topic1, topic2], messageBus: self.messageBus)
+    }
+
     func messages(count: Int) -> [Epic.Message] {
-        return (0..<count).map { _ in return Message(types: ["test_type"], payload: nil) }
+        return (0..<count).map { _ in return Message(types: ["test_type", "another_type"], payload: nil) }
     }
 
     func assertEmptyState() {
@@ -107,21 +130,42 @@ class IntegrationTests: XCTestCase {
 }
 
 class DryBroker: Broker {
-    var topic: DryTopic
+    var topics: [DryTopic]
 
     init(topic: DryTopic, messageBus: MessageBusProtocol) {
-        self.topic = topic
+        self.topics = [topic]
         super.init(messageBus: messageBus, pollingLoad: 1, pollingTime: 0.001)
     }
 
-    
+    init(topics: [DryTopic], messageBus: MessageBusProtocol) {
+        self.topics = topics
+        super.init(messageBus: messageBus, pollingLoad: 1, pollingTime: 0.001)
+    }
+
+    private let typeAndTopic = [
+        "test_type": "testing_topic_0",
+        "another_type": "testing_topic_1"
+    ]
 
     override func fetch(messages: [Message]) {
-        messages.forEach { (message) in
-            if message.types.contains("test_type") {
-                self.topic.store(messages: [message])
+        let testTypeMessages = messages.filter { $0.types.contains("test_type") }
+        let anotherTypeMessages = messages.filter { $0.types.contains("another_type") }
+
+        typeAndTopic.forEach { (key, value) in
+            var topic = self.topic(name: value)
+
+            switch value {
+            case "testing_topic_0":
+                topic?.store(messages: testTypeMessages)
+            case "testing_topic_1":
+                topic?.store(messages: anotherTypeMessages)
+            default: break
             }
         }
+    }
+
+    public func topic(name: String) -> DryTopic? {
+        return self.topics.first(where: { $0.name == name })
     }
 }
 
