@@ -11,20 +11,20 @@ public protocol Topic {
 public extension Topic {
     /// Stores new messages
     /// Last index value represents the position between the last older message was retrieved
-    public mutating func store(messages: [Epic.Message]) {
+    mutating func store(messages: [Epic.Message]) {
         self.lastIndex = self.messages.count
         self.messages.append(contentsOf: messages)
     }
 
     /// Returns the last added messages
-    public var newMessages: [Epic.Message] {
+    var newMessages: [Epic.Message] {
         guard self.lastIndex > 0 else { return self.messages }
         let newItems = self.messages.dropFirst(self.lastIndex)
         return Array(newItems)
     }
 
     /// Cleans the oldest messages, based on the last index value
-    public mutating func purge() -> [Epic.Message] {
+    mutating func purge() -> [Epic.Message] {
         self.messages = Array(self.messages.dropLast(self.lastIndex))
         self.lastIndex = self.messages.count
         return self.messages
