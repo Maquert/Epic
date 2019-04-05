@@ -2,17 +2,17 @@ import XCTest
 import Epic
 
 class BrokerTests: XCTestCase {
-    var lane: MessageBusProtocol!
+    var messageBus: MessageBusProtocol!
     var sut: Broker!
 
     override func tearDown() {
         sut = nil
-        lane = nil
+        messageBus = nil
         super.tearDown()
     }
 
-    func testBrokerWithEmptyLane() {
-        givenAnEmptyLane()
+    func testBrokerWithEmptyMessageBus() {
+        givenAnEmptyMessageBus()
 
         let extraction = expectation(description: "Execution of an empty extraction")
         sut.subscribe { (messages) in
@@ -23,8 +23,8 @@ class BrokerTests: XCTestCase {
         waitForExpectations(timeout: 2, handler: nil)
     }
 
-    func testBrokerWithALaneOfThreeItems() {
-        givenALane(withNumberOfMessages: 3)
+    func testBrokerWithAMessageBusOfThreeItems() {
+        givenAMessageBus(withNumberOfMessages: 3)
 
         var fetchedMessagesCount = 0
         let extraction = expectation(description: "Execution of an full extraction")
@@ -40,16 +40,16 @@ class BrokerTests: XCTestCase {
 
     // MARK: Given
 
-    func givenAnEmptyLane() {
-        self.lane = MessageBus()
-        self.sut = Broker(messageBus: self.lane, pollingLoad: 1, pollingTime: 1)
+    func givenAnEmptyMessageBus() {
+        self.messageBus = MessageBus()
+        self.sut = Broker(messageBus: self.messageBus, pollingLoad: 1, pollingTime: 1)
     }
 
-    func givenALane(withNumberOfMessages count: Int) {
-        self.lane = MessageBus()
-        self.sut = Broker(messageBus: self.lane, pollingLoad: 1, pollingTime: 1)
+    func givenAMessageBus(withNumberOfMessages count: Int) {
+        self.messageBus = MessageBus()
+        self.sut = Broker(messageBus: self.messageBus, pollingLoad: 1, pollingTime: 1)
 
         let messages = (0..<count).map { Message(types: ["test_" + String($0)], payload: nil) }
-        self.lane.send(messages: messages)
+        self.messageBus.send(messages: messages)
     }
 }

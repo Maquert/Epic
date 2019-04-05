@@ -48,7 +48,7 @@ public extension MessageBusProtocol {
     }
 }
 
-/// Message values are stored and dispatched through the Epic Lane object
+/// Message values are stored and dispatched through the Epic MessageBus object
 ///
 /// Messages are typically created with a type value.
 /// A payload can be attached with further data

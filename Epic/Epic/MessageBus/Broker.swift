@@ -4,9 +4,9 @@
  # Do not create instances of this class directly. Use a subclass instead.
 
  # Purpose
- A broker should choose a lane from which it will extract messages continuously.
+ A broker should choose a MessageBus from which it will extract messages continuously.
  Use the init method for this purpose.
- You won't be able to alter the lane or the polling load once the broker starts gathering messages.
+ You won't be able to alter the MessageBus or the polling load once the broker starts gathering messages.
 
  # Performance
  Configure `pollingLoad` and `pollingTime` to your specific needs, since they will have a huge impact on your code performance.

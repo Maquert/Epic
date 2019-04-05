@@ -1,55 +1,55 @@
 import XCTest
 import Epic
 
-class LaneEventBusTests: XCTestCase {
+class MessageBusTests: XCTestCase {
     var sut: MessageBus!
 
-    func testEmptyLane() {
-        givenAnEmptyLane()
+    func testEmptyMessageBus() {
+        givenAnEmptyMessageBus()
 
-        assertEmptyLane()
+        assertEmptyMessageBus()
     }
 
-    func testSendOneMessagesToLaneReturnsOneMessage() {
-        givenAnEmptyLane()
+    func testSendOneMessagesToMessageBusReturnsOneMessage() {
+        givenAnEmptyMessageBus()
 
         sut.send(message: Message(types: ["test_0"], payload: nil))
 
-        assertLane(withNumberOfMessages: 1)
+        assertMessageBus(withNumberOfMessages: 1)
     }
 
-    func testSendFiveMessagesToLaneReturnsFiveMessages() {
-        givenALane(withNumberOfMessages: 5)
+    func testSendFiveMessagesToMessageBusReturnsFiveMessages() {
+        givenAMessageBus(withNumberOfMessages: 5)
 
-        assertLane(withNumberOfMessages: 5)
+        assertMessageBus(withNumberOfMessages: 5)
     }
 
     func testExtractTwoItemsFromAQueueOfFiveReturnsThreeRemainingItems() {
-        givenALane(withNumberOfMessages: 5)
+        givenAMessageBus(withNumberOfMessages: 5)
 
         _ = sut.extract(numberOfMessages: 2)
 
-        assertLane(withNumberOfMessages: 3)
+        assertMessageBus(withNumberOfMessages: 3)
     }
 
     func testExtractZeroItemsFromAQueueOfFiveReturnsFiveRemainingItems() {
-        givenALane(withNumberOfMessages: 5)
+        givenAMessageBus(withNumberOfMessages: 5)
 
         _ = sut.extract(numberOfMessages: 0)
 
-        assertLane(withNumberOfMessages: 5)
+        assertMessageBus(withNumberOfMessages: 5)
     }
 
     func testExtractSixItemsFromAQueueOfFiveReturnsZeroRemainingItems() {
-        givenALane(withNumberOfMessages: 5)
+        givenAMessageBus(withNumberOfMessages: 5)
 
         _ = sut.extract(numberOfMessages: 6)
 
-        assertLane(withNumberOfMessages: 0)
+        assertMessageBus(withNumberOfMessages: 0)
     }
 
     func testExtractedMessagesReturnsOldestOnesInReversedOrderOfAddition() {
-        givenAnEmptyLane()
+        givenAnEmptyMessageBus()
         sut.send(message: Message(types: ["first_test"], payload: nil))
         sut.send(message: Message(types: ["second_test"], payload: nil))
         sut.send(message: Message(types: ["third_test"], payload: nil))
@@ -61,7 +61,7 @@ class LaneEventBusTests: XCTestCase {
     }
 
     func testExtractedMessagesReturnsOldestOnesInOrderOfAddition() {
-        givenAnEmptyLane()
+        givenAnEmptyMessageBus()
         sut.send(message: Message(types: ["first_test"], payload: nil))
         sut.send(message: Message(types: ["second_test"], payload: nil))
         sut.send(message: Message(types: ["third_test"], payload: nil))
@@ -76,7 +76,7 @@ class LaneEventBusTests: XCTestCase {
     }
 
     func testExtractedMessagesReturnsOldestOnesInReversedOrderWhenAddedInBatch() {
-        givenAnEmptyLane()
+        givenAnEmptyMessageBus()
         sut.send(messages: [
             Message(types: ["first_test"], payload: nil),
             Message(types: ["second_test"], payload: nil),
@@ -90,7 +90,7 @@ class LaneEventBusTests: XCTestCase {
     }
 
     func testExtractedMessagesReturnsOldestOnesInOrderOfAdditionWhenAddedInBatch() {
-        givenAnEmptyLane()
+        givenAnEmptyMessageBus()
         sut.send(messages: [
             Message(types: ["first_test"], payload: nil),
             Message(types: ["second_test"], payload: nil),
@@ -108,11 +108,11 @@ class LaneEventBusTests: XCTestCase {
 
     // MARK: Given
 
-    func givenAnEmptyLane() {
+    func givenAnEmptyMessageBus() {
         self.sut = MessageBus()
     }
 
-    func givenALane(withNumberOfMessages count: Int) {
+    func givenAMessageBus(withNumberOfMessages count: Int) {
         self.sut = MessageBus()
         let messages = (0..<count).map { Message(types: ["test_" + String($0)], payload: nil) }
         self.sut.send(messages: messages)
@@ -120,11 +120,11 @@ class LaneEventBusTests: XCTestCase {
 
     // MARK: Assert
 
-    func assertEmptyLane() {
+    func assertEmptyMessageBus() {
         XCTAssertEqual(sut.numberOfMessages, 0)
     }
 
-    func assertLane(withNumberOfMessages count: Int) {
+    func assertMessageBus(withNumberOfMessages count: Int) {
         XCTAssertEqual(sut.numberOfMessages, count)
     }
 }

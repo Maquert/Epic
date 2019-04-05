@@ -2,7 +2,7 @@ import XCTest
 import Epic
 
 class TopicTests: XCTestCase {
-    var lane: MessageBusProtocol!
+    var messageBus: MessageBusProtocol!
     var sut: Topic!
 
     func testEmptyTopic() {
