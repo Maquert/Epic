@@ -32,6 +32,9 @@ throttler.throttle {
 
 *It prevents overloads on potentially repetitive and intensive calls to a limited resource, and thus these calls will not degrade the performance of the whole system.*
 
+`![Epic: A Throttle diagram](https://github.com/maquert/Epic/blob/master/Documentation/Throttle.png)`
+![Epic: A Throttle diagram](https://github.com/maquert/Epic/blob/Diagrams/Documentation/Throttle.png)
+
 For further documentation, [check the docs](https://github.com/maquert/Epic/blob/master/Documentation/Usage.md#Throttle).
 
 ### Generator
@@ -49,6 +52,9 @@ let generator = Generator(operations: [
 var iterator = generator.iterator()
 iterator.next(executingBlock: true) 
 ````
+
+`![Epic: A Generator diagram](https://github.com/maquert/Epic/blob/master/Documentation/Generator.png)`
+![Epic: A Generator diagram](https://github.com/maquert/Epic/blob/Diagrams/Documentation/Generator.png)
 
 For further documentation, [check the docs](https://github.com/maquert/Epic/blob/master/Documentation/Usage.md#Generator).
 
