@@ -79,7 +79,7 @@ Currently, only one extension over Sequence is included in Epic.
 
 - [x] [Filter with an array of predicates](https://github.com/maquert/Epic/blob/master/Documentation/Extensions.md#Filter).
 
-For further documentation, [check the docs](https://github.com/maquert/Epic/blob/master/Documentation/Extension.md).
+For further documentation, [check the docs](https://github.com/maquert/Epic/blob/master/Documentation/Extensions.md).
 
 ## Installation
 
