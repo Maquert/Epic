@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Maquert/Epic.svg?branch=master)](https://travis-ci.org/Maquert/Epic)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Twitter](https://img.shields.io/badge/twitter-@Maquert-blue.svg?style=flat)](https://twitter.com/Maquert)
 

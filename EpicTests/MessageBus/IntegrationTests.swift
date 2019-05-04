@@ -44,20 +44,20 @@ class IntegrationTests: XCTestCase {
         assertState(withNumberOfProcessedItems: 10)
     }
 
-    func testRunningEventBusWith1000Messages() { // ! Load test
+    func testRunningEventBusWith200Messages() { // ! Load test
         givenAnEmptyState()
 
-        let reachedEnd = expectation(description: "The 1000 messages reached the topic")
+        let reachedEnd = expectation(description: "The 200 messages reached the topic")
         broker.subscribe()
         topic.onChange = { messages in
-            if messages.count == 1000 {
+            if messages.count == 200 {
                 reachedEnd.fulfill()
             }
         }
-        messageBus.send(messages: messages(count: 1000))
-        waitForExpectations(timeout: 2, handler: nil) // 1000 messages won't make it in 0.001 seconds
+        messageBus.send(messages: messages(count: 200))
+        waitForExpectations(timeout: 2, handler: nil)
 
-        assertState(withNumberOfProcessedItems: 1000)
+        assertState(withNumberOfProcessedItems: 200)
     }
 
     func testMessagesArriveToTopicsWhenBrokerLaunchesAfterMessageBusHasStoredThem() {
