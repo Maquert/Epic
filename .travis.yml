@@ -1,0 +1,11 @@
+language: objective-c
+osx_image: xcode10.2
+env:
+  - DESTINATION="OS=12.1,name=iPhone SE" SCHEME="Epic" SDK=iphonesimulator12.1
+
+before_install:
+- gem install xcpretty
+
+script:
+- swiftlint
+- set -o pipefail && xcodebuild -project Epic.xcodeproj -scheme 'Epic' -destination 'platform=iOS Simulator,name=iPhone SE' build test CODE_SIGN_IDENTITY= | xcpretty -c
