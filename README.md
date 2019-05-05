@@ -1,5 +1,11 @@
+![Epic: Simple operations manager in Swift](https://github.com/maquert/Epic/blob/master/epic.png)
+
 [![Build Status](https://travis-ci.org/Maquert/Epic.svg?branch=master)](https://travis-ci.org/Maquert/Epic)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Licence](https://img.shields.io/badge/licence-MIT-green.svg)](https://github.com/Maquert/Epic/blob/master/LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/Maquert/Epic.svg)](https://github.com/Maquert/Epic/commits/master)
+![Platforms](https://img.shields.io/badge/platforms-macOS%20%7C%20iOS%20%7C%20tvOS%20%7C%20watchOS-lightgrey.svg?longCache=true&style=flat)
+![Languages](https://img.shields.io/badge/languages-Swift-orange.svg?longCache=true&style=flat)
 [![Twitter](https://img.shields.io/badge/twitter-@Maquert-blue.svg?style=flat)](https://twitter.com/Maquert)
 
 # Epic
