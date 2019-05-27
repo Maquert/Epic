@@ -8,12 +8,11 @@
 ![Languages](https://img.shields.io/badge/languages-Swift-orange.svg?longCache=true&style=flat)
 [![Twitter](https://img.shields.io/badge/twitter-@Maquert-blue.svg?style=flat)](https://twitter.com/Maquert)
 
-# Epic
-
 Epic is a simple operations manager written in Swift.
 
 - [Features](#features)
 - [Installation](#installation)
+- [Credits](#credits)
 - [Feature Usage](https://github.com/maquert/Epic/blob/master/Documentation/Usage.md)
 - [Extensions](https://github.com/maquert/Epic/blob/master/Documentation/Extensions.md)
 
@@ -101,3 +100,8 @@ github "Maquert/Epic" "0.1.0"
 ```swift
 import Epic
 ```
+
+## Credits
+Epic is maintained by [Miguel Hernández Jaso](https://twitter.com/Maquert).
+
+Header backdrop photo is a creation by [Daniela Rogoza](https://www.instagram.com/dosdedos).
