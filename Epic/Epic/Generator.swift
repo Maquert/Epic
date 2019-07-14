@@ -24,7 +24,7 @@ public struct Generator {
         return iterator
     }
 
-    public struct Iterator: IteratorProtocol {
+    public struct Iterator {
         private let generator: Generator
         private var currentIndex: Int = 0
         public var lastIndex: Int { return currentIndex }
@@ -59,13 +59,10 @@ public struct Generator {
     }
 }
 
-/// No-return closure
-public typealias EpicBlock = () -> Void
 /// A single operation to be dispatched in the Generator.
 ///
 /// An Epic block is a no-return closure
 public struct Operation {
-    typealias EmptyBlock = (() -> Void)?
     public let identifier: String
     public let block: EpicBlock?
 

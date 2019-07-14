@@ -3,7 +3,7 @@ import Foundation
 /// Throttles tasks within time intervals.
 /// Within every interval, only the last throttled task will be executed.
 /// Tasks are always dispatched on the main queue.
-public class Throttle {
+public final class Throttle: ThrottleProtocol {
     fileprivate typealias Me = Throttle
 
     private let queue: DispatchQueue = DispatchQueue.global(qos: .background)
