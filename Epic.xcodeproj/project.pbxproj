@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		F5408CDB221D70350078148D /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5408CDA221D70350078148D /* SequenceExtensions.swift */; };
 		F5408CDD221D70550078148D /* SequenceExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5408CDC221D70550078148D /* SequenceExtensionsTests.swift */; };
+		F5988CF022DBB60F00D3B6DE /* ThrottleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5988CEF22DBB60F00D3B6DE /* ThrottleProtocol.swift */; };
+		F5988CF222DBB6DA00D3B6DE /* Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5988CF122DBB6DA00D3B6DE /* Shared.swift */; };
+		F5C4EF0122DBAF2800FFBC63 /* GeneratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C4EF0022DBAF2800FFBC63 /* GeneratorProtocol.swift */; };
 		F5C854532229A770004C5AD6 /* BrokerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C854522229A770004C5AD6 /* BrokerTests.swift */; };
 		F5C854552229DB6A004C5AD6 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C854542229DB6A004C5AD6 /* Topic.swift */; };
 		F5C854592229DE93004C5AD6 /* TopicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C854582229DE93004C5AD6 /* TopicTests.swift */; };
@@ -37,6 +40,9 @@
 /* Begin PBXFileReference section */
 		F5408CDA221D70350078148D /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
 		F5408CDC221D70550078148D /* SequenceExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensionsTests.swift; sourceTree = "<group>"; };
+		F5988CEF22DBB60F00D3B6DE /* ThrottleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrottleProtocol.swift; sourceTree = "<group>"; };
+		F5988CF122DBB6DA00D3B6DE /* Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shared.swift; sourceTree = "<group>"; };
+		F5C4EF0022DBAF2800FFBC63 /* GeneratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorProtocol.swift; sourceTree = "<group>"; };
 		F5C854522229A770004C5AD6 /* BrokerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrokerTests.swift; sourceTree = "<group>"; };
 		F5C854542229DB6A004C5AD6 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		F5C854582229DE93004C5AD6 /* TopicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicTests.swift; sourceTree = "<group>"; };
@@ -80,6 +86,15 @@
 				F5408CDA221D70350078148D /* SequenceExtensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F5C4EEFF22DBAF1100FFBC63 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F5C4EF0022DBAF2800FFBC63 /* GeneratorProtocol.swift */,
+				F5988CEF22DBB60F00D3B6DE /* ThrottleProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		F5C854512229A753004C5AD6 /* MessageBus */ = {
@@ -147,8 +162,10 @@
 		F5E4F14121B122ED0094ED4D /* Epic */ = {
 			isa = PBXGroup;
 			children = (
+				F5988CF122DBB6DA00D3B6DE /* Shared.swift */,
 				F5E4F14221B1231C0094ED4D /* Generator.swift */,
 				F5E4F14421B1232F0094ED4D /* Throttle.swift */,
+				F5C4EEFF22DBAF1100FFBC63 /* Protocols */,
 				F5D8A63B2228ED480029BDF1 /* MessageBus */,
 			);
 			path = Epic;
@@ -265,10 +282,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5C4EF0122DBAF2800FFBC63 /* GeneratorProtocol.swift in Sources */,
 				F5E4F14321B1231C0094ED4D /* Generator.swift in Sources */,
 				F5D8A6382228AFA20029BDF1 /* MessageBus.swift in Sources */,
 				F5408CDB221D70350078148D /* SequenceExtensions.swift in Sources */,
 				F5D8A63A2228E8B30029BDF1 /* Broker.swift in Sources */,
+				F5988CF022DBB60F00D3B6DE /* ThrottleProtocol.swift in Sources */,
+				F5988CF222DBB6DA00D3B6DE /* Shared.swift in Sources */,
 				F5E4F14521B1232F0094ED4D /* Throttle.swift in Sources */,
 				F5C854552229DB6A004C5AD6 /* Topic.swift in Sources */,
 			);
