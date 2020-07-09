@@ -21,5 +21,5 @@ public protocol IteratorProtocol: Swift.IteratorProtocol {
 public protocol OperationProtocol {
     var identifier: String { get }
     var block: EpicBlock? { get }
-    init(_ identifier: String, block: EpicBlock)
+    init(_ identifier: String, block: EpicBlock?)
 }

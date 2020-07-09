@@ -2,8 +2,8 @@
 /// - Use `iterator()` for a step-by-step run
 /// - Use `run()` to execute all tasks one by one. Asynchrony is not handled and tasks may be parallelised.
 public struct Generator {
-    let operations: [Operation]
-    public init(operations: [Operation]) {
+    let operations: [OperationProtocol]
+    public init(operations: [OperationProtocol]) {
         self.operations = operations
     }
 
@@ -37,7 +37,7 @@ public struct Generator {
 
         /// Returns the next operation to be executed
         @discardableResult
-        public mutating func next() -> Operation? {
+        public mutating func next() -> OperationProtocol? {
             guard let nextItem = self[self.currentIndex] else { return nil }
 
             self.currentIndex += 1
@@ -46,13 +46,13 @@ public struct Generator {
 
         /// Returns the next operation and also executes its block automatically
         @discardableResult
-        public mutating func next(executingBlock: Bool) -> Operation? {
+        public mutating func next(executingBlock: Bool) -> OperationProtocol? {
             let operation = self.next()
             if executingBlock == true, let block = operation?.block { block() }
             return operation
         }
 
-        private subscript(index: Int) -> Operation? {
+        private subscript(index: Int) -> OperationProtocol? {
             guard (0..<self.generator.operations.count).contains(index) else { return nil }
             return self.generator.operations[index]
         }
@@ -62,7 +62,7 @@ public struct Generator {
 /// A single operation to be dispatched in the Generator.
 ///
 /// An Epic block is a no-return closure
-public struct Operation {
+public struct Operation: OperationProtocol {
     public let identifier: String
     public let block: EpicBlock?
 
