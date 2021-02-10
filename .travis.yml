@@ -1,0 +1,14 @@
+language: swift
+osx_image: xcode12
+env:
+  - PROJECT_NAME=Epi
+
+before_install:
+- gem install xcpretty
+
+install: swift package update
+
+script:
+  - swiftlint
+  - swift build
+  - swift test
