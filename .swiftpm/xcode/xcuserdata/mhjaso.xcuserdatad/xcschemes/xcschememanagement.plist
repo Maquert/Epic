@@ -12,12 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>F5E4F12421B122930094ED4D</key>
+		<key>Epic</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F5E4F12D21B122940094ED4D</key>
+		<key>EpicTests</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -1,3 +1,5 @@
+import Foundation
+
 /**
  Provides base implementation for any sub-broker class.
 
