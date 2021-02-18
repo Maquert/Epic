@@ -96,7 +96,7 @@ Add `Epic` to your Project’s ‘Swift Packages’ section or add Epic as a dep
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Maquert/Epic.git", .upToNextMajor(from: "0.2.0"))
+    .package(url: "https://github.com/Maquert/Epic.git", .upToNextMajor(from: "0.2.2"))
 ]
 ```
 
