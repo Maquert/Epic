@@ -17,12 +17,12 @@ public final class Throttle: ThrottleProtocol {
     }
 
     /// Throttles a block that will be only executed if no later requests are sent within the specified interval of time (100 milliseconds by default)
-    public func throttle(block: EpicBlock?) {
+    public func throttle(block: @escaping EpicBlock) {
         self.task.cancel()
         self.task = DispatchWorkItem() { [weak self] in
             self?.previousExecution = Date()
             DispatchQueue.main.async {
-                block?()
+                block()
             }
         }
         let delay = Me.second(from: self.previousExecution) > self.interval ? 0 : self.interval
