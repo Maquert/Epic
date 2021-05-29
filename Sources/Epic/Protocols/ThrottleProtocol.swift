@@ -7,5 +7,5 @@ import Foundation
 protocol ThrottleProtocol {
     init(interval: TimeInterval)
 
-    func throttle(block: (() -> Void)?)
+    func throttle(block: @escaping (() -> Void))
 }
