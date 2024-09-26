@@ -4,7 +4,7 @@ import Foundation
 /// Within every interval, only the last throttled task will be executed.
 /// Tasks are always dispatched on the main queue.
 public final class Throttle: ThrottleProtocol {
-    private let queue: DispatchQueue = DispatchQueue.global(qos: .background)
+    private var queue: DispatchQueue
     private var task: DispatchWorkItem = DispatchWorkItem(block: {})
     private var previousExecution: Date = Date.distantPast
     private var interval: TimeInterval
@@ -12,16 +12,17 @@ public final class Throttle: ThrottleProtocol {
     /// Initializes with the interval of seconds within tasks are constrained to be executed
     public init(interval: TimeInterval = 1) {
         self.interval = interval
+        self.queue = DispatchQueue.global(qos: .background)
     }
 
     /// Throttles a block that will be only executed if no later requests are sent within the specified interval of time (100 milliseconds by default)
     public func throttle(block: @escaping EpicBlock) {
-        self.throttle(block: block, onQueue: .main)
+        self.throttle(block: block, onQueue: self.queue)
     }
 
     private func throttle(
         block: @escaping EpicBlock,
-        onQueue queue: DispatchQueue = .main
+        onQueue queue: DispatchQueue
     ) {
         self.task.cancel()
         self.task = DispatchWorkItem() { [weak self] in
